@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Database Verkeersstudies Suriname</title>
+<style>
+:root{--bg:#f5f7f9;--card:#fff;--ink:#16222e;--mute:#5d6b78;--line:#dde3e8;--navy:#00396f;--green:#3f9f4a;--red:#d9001b;--chip:#e9eef3;--on:#00396f;--onink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1720;--card:#17212c;--ink:#e8eef4;--mute:#9aa8b5;--line:#2a3846;--navy:#7db4ec;--chip:#223140;--on:#7db4ec;--onink:#0f1720}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--card);border-bottom:4px solid var(--navy)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;gap:16px;padding:18px 0}
+.top img{height:64px;border-radius:8px;background:#fff}
+.top h1{margin:0;font-size:clamp(1.25rem,3vw,1.75rem);line-height:1.2;color:var(--navy)}
+.top p{margin:4px 0 0;color:var(--mute);font-size:.92rem}
+.lang{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{border:0;background:none;color:var(--ink);padding:6px 12px;cursor:pointer;font:inherit;font-weight:600}
+.lang button[aria-pressed=true]{background:var(--on);color:var(--onink)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 12px}
+.bar input[type=search]{flex:1 1 280px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+select,.btn{padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.btn.pri{background:var(--on);color:var(--onink);border-color:var(--on);font-weight:600}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+details.f{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+details.f summary{padding:10px 14px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between}
+details.f summary span{color:var(--mute);font-weight:400}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 14px 14px;max-height:220px;overflow:auto}
+.chip{border:1px solid transparent;background:var(--chip);color:var(--ink);border-radius:999px;padding:4px 11px;font:inherit;font-size:.85rem;cursor:pointer}
+.chip small{color:var(--mute)}
+.chip[aria-pressed=true]{background:var(--on);color:var(--onink)}.chip[aria-pressed=true] small{color:inherit}
+.years{display:flex;gap:8px;align-items:center;padding:4px 14px 14px;color:var(--mute)}
+.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:14px 0}
+.meta b{font-size:1.05rem}
+.list{display:grid;gap:12px;padding-bottom:40px}
+.card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:14px 16px}
+.card h2{margin:0 0 2px;font-size:1.05rem;line-height:1.35}
+.card .sub{color:var(--mute);font-size:.9rem;margin:0 0 6px}
+.info{color:var(--mute);font-size:.88rem;display:flex;flex-wrap:wrap;gap:4px 14px;margin:4px 0 8px}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.tag{font-size:.78rem;padding:2px 9px;border-radius:999px;background:var(--chip)}
+.tag.ty{background:var(--on);color:var(--onink);font-weight:600}
+.act{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.act a{text-decoration:none}
+.sum{margin:8px 0 0;font-size:.9rem;color:var(--ink)}
+.empty{text-align:center;padding:48px 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:20px 0 32px;color:var(--mute);font-size:.85rem}
+footer a{color:var(--navy)}
+</style>
+</head>
+<body>
+<header><div class="wrap top">
+<img src="data:image/jpeg;base64,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" alt="KM Smart Mobility">
+<div><h1 id="h1"></h1><p id="sub"></p></div>
+<div class="lang" role="group" aria-label="Language"><button data-l="nl">NL</button><button data-l="en">EN</button></div>
+</div></header>
+<main class="wrap">
+<div class="bar">
+<input type="search" id="q">
+<select id="sort"></select>
+<button class="btn pri" id="dl"></button>
+</div>
+<div id="filters"></div>
+<div class="meta"><b id="count"></b><button class="btn" id="reset"></button></div>
+<div class="list" id="list"></div>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+<script>
+(async()=>{
+let J,TG;try{[J,TG]=await Promise.all([fetch('data.json').then(r=>r.json()),fetch('tags-en.json').then(r=>r.json())])}catch(e){document.getElementById('list').textContent='Data kon niet geladen worden / Data could not be loaded.';return}
+const D=J.items,UPD=J.updated;
+const T={nl:{h1:"Database Verkeersstudies Suriname",sub:"Open kennisbank met verkeers- en vervoersstudies. Gratis te raadplegen en te downloaden.",q:"Zoek op titel, auteur, onderwerp of samenvatting…",new:"Nieuwste eerst",old:"Oudste eerst",az:"Titel A–Z",dl:"Download lijst (CSV)",type:"Type",tags:"Onderwerpen",pub:"Uitgever",year:"Jaar",from:"van",to:"tot",reset:"Wis filters",n:["studie","studies"],none:"Geen studies gevonden. Pas je zoekopdracht of filters aan.",open:"Bekijk document",get:"Download",by:"Door",foot:'Alle bronnen zijn aangegeven. De documenten zijn niet in het bezit van KM Smart Mobility en zijn met toestemming van de auteurs beschikbaar gesteld. Documenten toevoegen of actualiseren? Mail <a href="mailto:info@kmsmartmob.com">info@kmsmartmob.com</a>. Ontwikkeld door <a href="https://www.kmsmartmob.com">KM Smart Mobility</a>.',upd:"Laatst bijgewerkt",loc:"nl-NL"},
+en:{h1:"Traffic Studies Database Suriname",sub:"Open knowledge base of traffic and transport studies. Free to browse and download. Titles and summaries are translated for convenience; the documents themselves are in their original language.",q:"Search by title, author, topic or summary…",new:"Newest first",old:"Oldest first",az:"Title A–Z",dl:"Download list (CSV)",type:"Type",tags:"Topics",pub:"Publisher",year:"Year",from:"from",to:"to",reset:"Clear filters",n:["study","studies"],none:"No studies found. Adjust your search or filters.",open:"View document",get:"Download",by:"By",foot:'All sources are credited. The documents are not owned by KM Smart Mobility and are shared with permission of the authors. Want to add or update a document? Email <a href="mailto:info@kmsmartmob.com">info@kmsmartmob.com</a>. Developed by <a href="https://www.kmsmartmob.com">KM Smart Mobility</a>.',upd:"Last updated",loc:"en-GB"}};
+const tr={en:TG};
+let L="nl";
+const S={q:"",ty:new Set(),tg:new Set(),p:new Set(),y1:0,y2:9999,sort:"new"};
+const $=id=>document.getElementById(id),yr=x=>+x.d.slice(0,4);
+const lab=v=>(L==="en"&&tr.en[v])||v;
+const pick=(x,k,e)=>(L==="en"&&x[e])||x[k];
+const cnt=k=>{const m={};D.forEach(x=>x[k].forEach(v=>m[v]=(m[v]||0)+1));return Object.entries(m).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))};
+const years=[...new Set(D.map(yr))].sort((a,b)=>a-b);
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+D.forEach(x=>x._h=norm([x.t,x.te,x.st,x.se,x.a,x.s,x.ee,...x.ty,...x.tg,...x.p,...[...x.ty,...x.tg].map(v=>tr.en[v]||"")].join(" ")));
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function filtered(){const w=norm(S.q).split(/\s+/).filter(Boolean);
+ return D.filter(x=>w.every(t=>x._h.includes(t))&&(!S.ty.size||x.ty.some(v=>S.ty.has(v)))&&(!S.tg.size||x.tg.some(v=>S.tg.has(v)))&&(!S.p.size||x.p.some(v=>S.p.has(v)))&&yr(x)>=S.y1&&yr(x)<=S.y2)
+ .sort((a,b)=>S.sort==="old"?a.d.localeCompare(b.d):S.sort==="az"?a.t.localeCompare(b.t,"nl"):b.d.localeCompare(a.d))}
+function group(k,key,open){const items=cnt(key),n=S[k].size;
+ return `<details class="f"${open?" open":""} data-k="${k}"><summary>${T[L][k==="ty"?"type":k==="tg"?"tags":"pub"]}<span>${n?n+" ✓":items.length}</span></summary><div class="chips">${items.map(([v,c])=>`<button class="chip" data-k="${k}" data-v="${esc(v)}" aria-pressed="${S[k].has(v)}">${esc(lab(v))} <small>${c}</small></button>`).join("")}</div></details>`}
+function buildFilters(){const op=[...document.querySelectorAll("details.f[open]")].map(d=>d.dataset.k+(d.dataset.y||""));
+ const yo=op.includes("y");
+ $("filters").innerHTML=group("ty","ty",op.includes("ty"))+group("tg","tg",op.includes("tg"))+group("p","p",op.includes("p"))+
+ `<details class="f"${yo?" open":""} data-k="y"><summary>${T[L].year}<span>${S.y1>0||S.y2<9999?"✓":years[0]+"–"+years.at(-1)}</span></summary><div class="years">${T[L].from} <select id="y1">${years.map(y=>`<option${y===(S.y1||years[0])?" selected":""}>${y}</option>`).join("")}</select> ${T[L].to} <select id="y2">${[...years].reverse().map(y=>`<option${y===(S.y2===9999?years.at(-1):S.y2)?" selected":""}>${y}</option>`).join("")}</select></div></details>`;
+ $("y1").onchange=e=>{S.y1=+e.target.value;S.y1===years[0]&&(S.y1=0);render()};
+ $("y2").onchange=e=>{S.y2=+e.target.value;S.y2===years.at(-1)&&(S.y2=9999);render()}}
+function render(){const t=T[L],r=filtered();
+ document.documentElement.lang=L;$("h1").textContent=t.h1;$("sub").textContent=t.sub;$("q").placeholder=t.q;$("dl").textContent="⬇ "+t.dl;$("reset").textContent=t.reset;$("foot").innerHTML=t.foot;
+ $("sort").innerHTML=[["new",t.new],["old",t.old],["az",t.az]].map(([v,l])=>`<option value="${v}"${S.sort===v?" selected":""}>${l}</option>`).join("");
+ document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===L));
+ $("count").textContent=r.length+" "+t.n[r.length===1?0:1];
+ const fmt=d=>new Date(d+"T00:00:00").toLocaleDateString(t.loc,{day:"numeric",month:"long",year:"numeric"});
+ if(UPD)$("foot").innerHTML+=`<br>${t.upd}: ${fmt(UPD)}`;
+ $("list").innerHTML=r.length?r.map(x=>`<article class="card"><h2>${esc(pick(x,"t","te"))}</h2>${x.st?`<p class="sub">${esc(pick(x,"st","se"))}</p>`:""}
+ <div class="info"><span>📅 ${fmt(x.d)}</span>${x.a?`<span>✍ ${esc(x.a)}</span>`:""}${x.p.length?`<span>🏛 ${esc(x.p.join(", "))}</span>`:""}</div>
+ <div class="tags">${x.ty.map(v=>`<span class="tag ty">${esc(lab(v))}</span>`).join("")}${x.tg.map(v=>`<span class="tag">${esc(lab(v))}</span>`).join("")}</div>
+ ${x.s?`<p class="sum">${esc(pick(x,"s","ee"))}</p>`:""}
+ <div class="act"><a class="btn pri" href="${esc(x.u)}" target="_blank" rel="noopener">${t.open} ↗</a>${x.g?`<a class="btn" href="https://drive.google.com/uc?export=download&id=${x.g}" target="_blank" rel="noopener">⬇ ${t.get}</a>`:""}</div></article>`).join(""):`<div class="empty">${t.none}</div>`}
+function refresh(){buildFilters();render()}
+document.addEventListener("click",e=>{const c=e.target.closest(".chip");if(c){const s=S[c.dataset.k],v=c.dataset.v;s.has(v)?s.delete(v):s.add(v);refresh()}
+ const l=e.target.closest(".lang button");if(l){L=l.dataset.l;refresh()}});
+$("q").oninput=e=>{S.q=e.target.value;render()};
+$("sort").onchange=e=>{S.sort=e.target.value;render()};
+$("reset").onclick=()=>{S.q="";$("q").value="";S.ty.clear();S.tg.clear();S.p.clear();S.y1=0;S.y2=9999;refresh()};
+$("dl").onclick=()=>{const q=v=>'"'+String(v).replace(/"/g,'""')+'"',r=filtered();
+ const en=L==="en",h=en?["Title","Author(s)","Publication date","Type","Topics","Publisher(s)","Link"]:["Titel","Auteur(s)","Publicatiedatum","Type","Onderwerpen","Uitgever(s)","Link"];
+ const csv="\ufeff"+[h,...r.map(x=>[pick(x,"t","te"),x.a,x.d,x.ty.map(lab).join(", "),x.tg.map(lab).join(", "),x.p.join(", "),x.u])].map(l=>l.map(q).join(";")).join("\r\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="verkeersstudies.csv";a.click()};
+refresh();
+})();
+</script>
+</body>
+</html>
